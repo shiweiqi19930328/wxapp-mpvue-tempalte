@@ -1,0 +1,170 @@
+@import "./reset/reset.less";
+@import "./common/flex.less";
+@import "./common/arrow.less";
+@import "./common/color.less";
+@import "./common/size.less";
+
+// search样式
+.sarch-con{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dbdade;
+    .location{
+        font-size:15px;
+        color:#2e2e2e;
+    }
+    .align-right{
+        text-align: right;
+    }
+    .sarch-input-con{
+        background:#f2f2f2;
+        border-radius:15px;
+        width:280px;
+        height:30px;
+        padding: 8px 10px;
+        box-sizing: border-box;
+        .icon{
+            margin-right: 6px;
+        }
+        .search-input{
+            color:#2e2e2e;
+            font-size:12px;
+        }
+    }
+    .input-placeholder{
+        font-size:12px;
+        color:#aeacad;
+    }
+}
+// 小标签
+.tip{
+    border:1px solid #00ceb5;
+    border-radius:5px;
+    padding: 3px 8px;
+    line-height: 10px;
+    display: inline-block;
+    font-size:10px;
+    color:#00ceb5;
+    min-width:47px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-right: 5px;
+}
+
+
+// 分割线
+.split{
+    width: 1px;
+    margin: 0 5px;
+    background-color: #9b9b9b;
+}
+// 圆角
+.border-radius-100{
+    border-radius: 100%;
+}
+
+// 相对定位
+.relative{
+    position: relative;
+}
+
+.bottom-footer{
+    text-align: center;
+    margin: 25px 0;
+}
+
+
+// 弹窗样式
+.self-modal{
+    height: 0;
+    &-mask{
+        z-index: 9;
+        position:fixed;
+        width:100%;
+        height:100%;
+        top:0;
+        right: 0;
+        bottom: 0;
+        left:0;
+        background-color:rgba(0,0,0,.6);
+        transition:.3s;
+        display:none;
+    }
+    &.show &-mask{
+        display:block;
+    }
+    &-container{
+        border-radius:14px;
+        text-align: center;
+        position:fixed;
+        z-index: 10;
+        top:45%;
+        left:50%;
+        width:285px;
+        font-size:14px;
+        overflow:hidden;
+        transition:all .2s linear;
+        background-color:#fff;
+        transform:translate3d(-50%,-50%,0);
+        color:#454545;
+        display:none;
+        height: auto;
+        .header{
+
+        }
+        .close-icon{
+            position: absolute;
+            background:#aeacad;
+            width:20px;
+            height:20px;
+            border-radius:100%;
+            top: 7px;
+            right: 7px;
+        }
+    }
+    &.show &-container{
+        display:block;
+    }
+}
+// 删除弹框样式
+.delete-order-modal{
+    .content{
+        padding: 20px 70px;
+        line-height: 1.5;
+    }
+    .footer{
+        height: 50px;
+        line-height: 50px;
+        border-top:1px solid #dbdade;
+        .btn{
+            flex: 1;
+            color:#454545;
+            font-size: 17px;
+            text-align: center;
+            &.cancel{
+                border-right:1px solid #dbdade;
+            }
+        }
+    }
+}
+
+.zan-loadmore{
+    color: #aeacad;
+    padding:42rpx 0;
+    margin: 0 auto;
+}
+.noData{
+    text-align: center;
+    font-size: 14px;
+    color:#aeacad;
+    padding-top: 90px;
+}
+.hide-invite{
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    .canvas{
+        position: fixed;
+        top: -20000000000000px;
+    }
+}
+

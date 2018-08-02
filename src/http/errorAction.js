@@ -1,3 +1,4 @@
+// 接口错误提示
 export const errorAction = function(msg="服务器异常"){
     wx.hideLoading();
     wx.hideNavigationBarLoading();

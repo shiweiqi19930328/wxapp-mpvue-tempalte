@@ -12,6 +12,7 @@ const mixin = {
         getuserinfo(e){
             this.userInfo = e.mp.detail.userInfo;
         },
+        // 交互封装
         showToast(title){
             wx.showToast({
                 title: title,
@@ -34,6 +35,7 @@ const mixin = {
             wx.hideLoading()
         },
         formatMoney : formatCurrency,
+        // 拨打手机号
         callPhone(phone){
             wx.makePhoneCall({
                 phoneNumber: phone

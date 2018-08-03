@@ -12,7 +12,7 @@ fly.config.baseURL= baseURL
 fly.interceptors.request.use((config,promise)=>{
     //给所有请求添加自定义header
     if(!store.state.openid){
-        // 请求队列  需等待openid返回
+        // 请求队列  需等待openid返回(类似的获取token也是一样的道理)
         fly.lock();
         return getOpenid().then(
             (data)=>{

@@ -1,0 +1,62 @@
+// 弹窗样式
+@import "./_base.less";
+.modal{
+    height: 0;
+    &.show .mask{
+        display:block;
+    }
+    &.show &-container{
+        display:block;
+    }
+    // mask遮罩
+    .mask{
+        z-index: 9;
+        position:fixed;
+        width:100%;
+        height:100%;
+        top:0;
+        right: 0;
+        bottom: 0;
+        left:0;
+        background-color:rgba(0,0,0,.6);
+        transition:.3s;
+        display:none;
+    }
+    &-container{
+        border-radius:18px;
+        text-align: center;
+        position:fixed;
+        z-index: 10;
+        top:45%;
+        left:50%;
+        width:285px;
+        overflow:hidden;
+        transition:all .2s linear;
+        background-color:#fff;
+        transform:translate3d(-50%,-50%,0);
+        display:none;
+        height: auto;
+        .content{
+            padding: 20px;
+        }
+        .footer{
+            height: 50px;
+            line-height: 50px;
+            border-top: 1rpx solid @border-color;
+            color:@content-color;
+            display: flex;
+            align-items: center;
+            // 提供一套默认的样式，其他情况自由修改
+            .cancel{
+                text-align: center;
+                flex: 1;
+                border-right: 1rpx solid @border-color;
+            }
+            .confirm{
+                text-align: center;
+                flex: 1;
+            }
+        }
+    }
+    
+}

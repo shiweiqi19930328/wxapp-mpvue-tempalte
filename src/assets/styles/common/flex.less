@@ -94,3 +94,18 @@
 .flex-nowrap{
     flex-wrap: nowrap;
 }
+
+// 文字超出省略
+.ellipsis-l2 {
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+}
+.ellipsis{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    word-wrap:normal;
+}

@@ -1,26 +1,26 @@
-
+@import "./_base.less";
 // 箭头
-.arrow-down{
-    position:absolute;
-    right:0;
-    top:50%;
+.arrow{
+    position:relative;
     display:inline-block;
     height:6px;
     width:6px;
-    border-width: 0 2px 2px  0;
-    border-color:#aeacad;
+    border-width:2px 2px 0 0;
+    border-color:@arrow-color;
     border-style:solid;
-    transform:translateY(-50%) matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
-}
-.arrow-up{
-    position:absolute;
-    right:0;
-    top:50%;
-    display:inline-block;
-    height:6px;
-    width:6px;
-    border-width:  2px 0 0  2px ;
-    border-color:#aeacad;
-    border-style:solid;
-    transform:translateY(-50%) matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform:rotate(45deg);
+    &.right{
+        border-width:2px 2px 0 0;
+    }
+    &.left{
+        border-width:0 0 2px 2px;
+    }
+    &.up{
+        top: 3px;
+        border-width:2px 0 0 2px;
+    }
+    &.down{
+        top:-3px;
+        border-width: 0 2px 2px 0;
+    }
 }

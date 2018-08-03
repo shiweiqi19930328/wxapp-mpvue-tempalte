@@ -1,8 +1,18 @@
 // 样式重置
-
-// 去除button的自带border
+@import "../common/_base.less";
+// 去除button的默认样式
+button{
+	margin: 0;
+    padding: 0;
+    border-radius: 0;
+}
 button::after{
     border: none;
+}
+input{
+	outline:none;
+	border:none;
+	list-style: none;
 }
 // page样式
 page{
@@ -11,5 +21,5 @@ page{
     background-color: #fff;
     box-sizing: border-box;
     font-size: 14px; //初始化字体大小
-    color: #454545; //初始化字体颜色
+    color: @content-color; //初始化字体颜色
 }

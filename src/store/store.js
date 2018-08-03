@@ -2,7 +2,7 @@
 // make sure to call Vue.use(Vuex) if using a module system
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import system from './modules/system'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -13,6 +13,9 @@ const store = new Vuex.Store({
         saveOpenid(state,openid){
             state.openid = openid
         },
+    },
+    modules: {
+        system
     }
 })
 

@@ -33,3 +33,5 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 10.components目录下简单的组件封装（因为不支持具名slot），所以只能封装一些简单组件。实践中发现，也不支持循环引用组件（那种props传入循环中的变量的情况）
 11.框架缺陷 需要修改源码  详情见  ===》    https://github.com/Meituan-Dianping/mpvue/issues/639
 12.架构中已经配置了babel,es6=>es5,开发者工具的es6转es可以关闭
+13.日历插件，极点日历==》https://github.com/czcaiwj/calendar
+14.富文本解析组件 mpvue-wxParse ==> https://github.com/F-loat/mpvue-wxParse

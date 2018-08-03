@@ -1,6 +1,5 @@
-
+@import "./_base.less";
 // 主题色
-@primary-color:#00c5b5;
 .primary-color{
     color: @primary-color;
 }
@@ -9,31 +8,44 @@
 }
 // 主题渐变色
 .primary-linear{
-    // background: linear-gradient(to bottom right, #00c5c5 , #00ea84);
-    background: linear-gradient(to  right, #00c5c5 , #00ea84);
+    .bg-linear()
 }
 // 警告色
-@warn-color:#ff9900;
 .warn-color{
     color: @warn-color;
+}
+// 警告渐变色
+.warn-linear{
+    .bg-linear(#ffa107, #ffe90d)
 }
 .warn-bg{
     background-color: @warn-color;
 }
 // 成功颜色
-@success-color:#19be6b;
 .success-color{
     color: @success-color;
 }
 .success-bg{
     background-color: @success-color;
 }
+// 失败颜色
+.error-color{
+    color: @error-color;
+}
+.error-bg{
+    background-color: @error-color;
+}
 // 文本标题颜色
 .title-color{
-    color:#2e2e2e;
+    color:@title-color;
 }
-// 文本内容颜色
+// 正常文本内容颜色
 .content-color{
-    color:#454545;
+    color:@content-color;
 }
+// 正常文本内容颜色
+.content-light-color{
+    color:@content-light-color;
+}
+
 

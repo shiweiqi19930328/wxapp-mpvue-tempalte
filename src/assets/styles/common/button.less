@@ -1,0 +1,30 @@
+@import "./_base.less";
+.btn{
+    color: #fff;
+    border-radius: @btn-default-radius;
+    &.default{
+        background-color: #fff;
+        color: @primary-color;
+    }
+    &.primary{
+        background-color: @primary-color;
+    }
+    &.primary-linear{
+        .bg-linear()
+    }
+    &.warn{
+        background-color: @warn-color;
+    }
+    &.success{
+        background-color: @success-color;
+    }
+    &.error{
+        background-color: @error-color;
+    }
+    &.ghost{
+        background-color: transparent;
+        color: @primary-color;
+    }
+}
+
+

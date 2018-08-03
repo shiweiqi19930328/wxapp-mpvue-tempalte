@@ -1,0 +1,46 @@
+/*色彩定义
+  页面中任何地方，都尽量通过变量设置颜色
+*/
+
+// 主题色
+@primary-color:#00c5b5;
+// 警告色
+@warn-color:#ff9900;
+// 成功颜色
+@success-color:#19be6b;
+// 失败颜色
+@error-color:#ed3f14;
+// 文本标题颜色
+@title-color : #2e2e2e;
+// 正常文本内容颜色
+@content-color: #454545;
+// 浅色文本内容颜色
+@content-light-color: #aeacad;
+// 箭头颜色
+@arrow-color: #aeacad;
+@arrow-size: 6px;
+
+/*背景渐变，默认主题色
+@start  渐变开始颜色
+@end  结束颜色
+*/
+.bg-linear(@start :#00c5c5,@end :#00ea84){
+    background: linear-gradient(to right,@start,@end);
+}
+
+/*区块分割样式
+@height  高度
+@color   背景色
+*/
+.divide(@height:5px,@color :#f2f2f2){
+    height:@height;
+    background-color:@color;
+}
+
+/*border定义
+*/
+@border-color: #dbdade;
+
+
+// Button
+@btn-default-radius : 10px;

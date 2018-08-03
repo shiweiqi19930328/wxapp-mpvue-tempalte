@@ -12,6 +12,7 @@
 
 <script>
 export default {
+    name:'loadmore',
     props:{
         'loading':{
             type : Boolean,

@@ -2,7 +2,7 @@
 <template>
     <scroll-view class="tab-bar-con" scroll-x :scroll-left="scrollLeft" scroll-with-animation v-if="options">
         <radio-group  @change="tabChange" class="tab-bar flex-center-between" :style="{'width':tabbarWidth}">
-            <label class="tab-bar-item" v-for="(item,index) in options" :key="index" :class="active == index ? 'active' : ''">
+            <label class="tab-bar-item" v-for="(item,index) in options" :key="index" :class="value == index ? 'active' : ''">
                 <radio :value="index" v-show="false"/>
                 <div class="title">
                     {{item}}
@@ -27,12 +27,15 @@ export default {
             default(){
                 return []
             }
+        },
+        value : {
+            type : [Number,String],
+            default : 0
         }
     },
     data () {
         return {    
-            active : 0,
-            scrollLeft:0
+            
         }
     },
     computed:{
@@ -51,6 +54,18 @@ export default {
         // rpx单位是固定的，任何设备宽度都是750rpx
         tabbarWidth(){
             return 750/this.size*this.options.length+'rpx'
+        },
+        // 调整tabbar位置
+        scrollLeft(){
+            var index = this.value*1 + 1;
+            var centerIndex = this.size/2;
+            // px单位不固定，需要根据设备宽度来计算，计算出一个tab-item所占宽度
+            var perWidth = this.windowWidth/this.size;
+            if(index > centerIndex){
+                return Math.floor(index-centerIndex)*perWidth
+            }else{
+                return 0
+            }
         }
     },
     components: {
@@ -60,20 +75,10 @@ export default {
         // 修改active的值，并且仿今日头条效果，调整tabbar位置
         tabChange(e){
             // 修改active的值
-            this.active = e.mp.detail.value;
-            this.$emit('on-change',this.active);
-
-            // 调整tabbar位置
-            var index = this.active*1 + 1;
-            var centerIndex = this.size/2;
-            // px单位不固定，需要根据设备宽度来计算，计算出一个tab-item所占宽度
-            var perWidth = this.windowWidth/this.size;
-            if(index > centerIndex){
-                this.scrollLeft = Math.floor(index-centerIndex)*perWidth
-            }else{
-                this.scrollLeft = 0
-            }
-        }
+            var active = e.mp.detail.value;
+            this.$emit('on-change',active);
+            this.$emit('input',active);
+        },
     },
 
     created () {

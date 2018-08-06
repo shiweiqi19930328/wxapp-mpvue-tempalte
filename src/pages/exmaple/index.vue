@@ -29,8 +29,8 @@
          <!-- <searchbar></searchbar> -->
          
         <!-- tab切换 -->
-        <tabs-bar :default-size="5" :options="options" @on-change="tabChange"></tabs-bar>
-        <tabs-bar :default-size="5" :options="options2" @on-change="tabChange"></tabs-bar>
+        <tabs-bar :default-size="5" :options="options" @on-change="tabChange" v-model="tab1Active"></tabs-bar>
+        <tabs-bar :default-size="5" :options="options2" @on-change="tabChange" v-model="tab2Active"></tabs-bar>
 
         <!-- 弹框样式 -->
         <button class="btn primary" @click="showModal">点击弹框</button>
@@ -83,7 +83,9 @@ export default {
     data () {
         return {
             options : ['tab-1','tab-2','tab-3','tab-4','tab-5'],
+            tab1Active : 1,
             options2 : ['tab-1','tab-2','tab-3','tab-4','tab-5','tab-1','tab-2','tab-3','tab-4','tab-5'],
+            tab2Active : 5,
             modalShow : false
         }
     },
@@ -91,7 +93,9 @@ export default {
         
     },
     watch : {
-        
+        tab1Active(value){
+            console.log(value)
+        }
     },
     
     methods: {

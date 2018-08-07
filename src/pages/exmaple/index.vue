@@ -65,6 +65,43 @@
         </div>
         <div class="ellipsis">单行超出省略单行超出省略单行超出省略单行超出省略单行超出省略单行超出省略单行超出省略</div>
         <div class="ellipsis-l2">两行超出省略两行超出省略两行超出省略两行超出省略两行超出省略两行超出省略两行超出省略两行超出省略两行超出省略两行超出省略两行超出省略</div>
+
+         <!-- popup样式 -->
+        <button class="btn primary" @click="showPopup('bottom')">点击底部滑出</button>
+        <div class="popup popup-bottom" :class="bottom?'popup-show':''">
+            <div class="mask" @click="hidePopup('bottom')" @touchmove.stop></div>
+            <div class="popup-container" @touchmove.stop>
+                <div>我是底部弹出的内容</div>
+            </div>
+        </div>
+        <button class="btn primary" @click="showPopup('top')">点击顶部滑出</button>
+        <div class="popup popup-top" :class="top?'popup-show':''">
+            <div class="mask" @click="hidePopup('top')" @touchmove.stop></div>
+            <div class="popup-container" @touchmove.stop>
+                <div>我是顶部弹出的内容</div>
+            </div>
+        </div>
+        <button class="btn primary" @click="showPopup('left')">点击左侧滑出</button>
+        <div class="popup popup-left" :class="left?'popup-show':''">
+            <div class="mask" @click="hidePopup('left')" @touchmove.stop></div>
+            <div class="popup-container" @touchmove.stop>
+                <div>我是左侧弹出的内容</div>
+            </div>
+        </div>
+        <button class="btn primary" @click="showPopup('right')">点击右侧滑出</button>
+        <div class="popup popup-right" :class="right?'popup-show':''">
+            <div class="mask" @click="hidePopup('right')" @touchmove.stop></div>
+            <div class="popup-container" @touchmove.stop>
+                <div>我是右侧弹出的内容</div>
+            </div>
+        </div>
+        <button class="btn primary" @click="showPopup('center')">点击中间滑出</button>
+        <div class="popup" :class="center?'popup-show':''">
+            <div class="mask" @click="hidePopup('center')" @touchmove.stop></div>
+            <div class="popup-container" @touchmove.stop>
+                <div>我是中间弹出的内容</div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -86,7 +123,12 @@ export default {
             tab1Active : 1,
             options2 : ['tab-1','tab-2','tab-3','tab-4','tab-5','tab-1','tab-2','tab-3','tab-4','tab-5'],
             tab2Active : 5,
-            modalShow : false
+            modalShow : false,
+            bottom : false,
+            top : false,
+            left : false,
+            right : false,
+            center : false,
         }
     },
     computed:{
@@ -107,6 +149,12 @@ export default {
         },
         hideModal(){
             this.modalShow = false
+        },
+        showPopup(type){
+            this[type] = true
+        },
+        hidePopup(type){
+            this[type] = false
         }
     },
     onPullDownRefresh(){

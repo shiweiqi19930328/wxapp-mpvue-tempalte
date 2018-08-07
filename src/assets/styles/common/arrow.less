@@ -3,8 +3,8 @@
 .arrow{
     position:relative;
     display:inline-block;
-    height:6px;
-    width:6px;
+    height:@arrow-size;
+    width:@arrow-size;
     border-width:2px 2px 0 0;
     border-color:@arrow-color;
     border-style:solid;
@@ -16,11 +16,11 @@
         border-width:0 0 2px 2px;
     }
     &.up{
-        top: 3px;
+        top: @arrow-size/2;
         border-width:2px 0 0 2px;
     }
     &.down{
-        top:-3px;
+        // top:-@arrow-size/2;
         border-width: 0 2px 2px 0;
     }
 }

@@ -1,0 +1,96 @@
+// popup样式
+@import "./_base.less";
+.popup{
+    visibility:hidden;
+    // height: 0;
+    // mask遮罩
+    .mask{
+        z-index: 9;
+        position:fixed;
+        width:100%;
+        height:100%;
+        top:0;
+        right: 0;
+        bottom: 0;
+        left:0;
+        background-color:rgba(0,0,0,.6);
+        transition:all .3s;
+        display:none;
+    }
+    &.popup-show{
+        visibility:visible;
+        .popup-container{
+            opacity:1;
+        }
+        .mask{
+            display:block;
+        }
+    }
+    &-container{
+        position:fixed;
+        left:50%;
+        top:50%;
+        background:#fff;
+        transform:translate3d(-50%,-50%,0);
+        transform-origin:center;
+        transition:all .3s ease;
+        z-index:11;
+        opacity:0;
+    }
+    &.popup-bottom{
+        &.popup-show{
+            .popup-container{
+                transform:translateZ(0);
+            }
+        }
+        .popup-container{
+            top:auto;
+            left:0;
+            right: 0;
+            bottom:0;
+            transform:translate3d(0,100%,0);
+        }
+    }
+    &.popup-top{
+        &.popup-show{
+            .popup-container{
+                transform:translateZ(0);
+            }
+        }
+        .popup-container{
+            top:0;
+            left:0;
+            right: 0;
+            bottom:auto;
+            transform:translate3d(0,-100%,0);
+        }
+    }
+    &.popup-left{
+        &.popup-show{
+            .popup-container{
+                transform:translateZ(0);
+            }
+        }
+        .popup-container{
+            top:0;
+            left:0;
+            right: auto;
+            bottom:0;
+            transform:translate3d(-100%,0,0);
+        }
+    }
+    &.popup-right{
+        &.popup-show{
+            .popup-container{
+                transform:translateZ(0);
+            }
+        }
+        .popup-container{
+            top:0;
+            right:0;
+            left: auto;
+            bottom:0;
+            transform:translate3d(100%,0,0);
+        }
+    }
+}

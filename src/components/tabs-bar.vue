@@ -31,6 +31,10 @@ export default {
         value : {
             type : [Number,String],
             default : 0
+        },
+        width:{
+            type: [Number,String],
+            default : 750
         }
     },
     data () {
@@ -41,7 +45,8 @@ export default {
     computed:{
         // 从vuex中导出屏幕宽度(px)
         ...mapGetters([
-            'windowWidth'
+            'windowWidth',
+            'pixelRatio'
         ]),
         // 最终的size
         size(){
@@ -53,14 +58,14 @@ export default {
         },
         // rpx单位是固定的，任何设备宽度都是750rpx
         tabbarWidth(){
-            return 750/this.size*this.options.length+'rpx'
+            return this.width/this.size*this.options.length+'rpx'
         },
         // 调整tabbar位置
         scrollLeft(){
             var index = this.value*1 + 1;
             var centerIndex = this.size/2;
             // px单位不固定，需要根据设备宽度来计算，计算出一个tab-item所占宽度
-            var perWidth = this.windowWidth/this.size;
+            var perWidth = this.width/this.pixelRatio/this.size;
             if(index > centerIndex){
                 return Math.floor(index-centerIndex)*perWidth
             }else{

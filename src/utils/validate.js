@@ -18,16 +18,15 @@ const validate = function (form,rules){
 			}
 		}
 	}catch(err){
-		return {
-			valid : false,
-			message : err
-		}
+		wx.showToast({
+            title: err,
+            icon: 'none',
+            duration: 2000
+        });
+		return Promise.reject(err)
 	}
 	//没有被catch到错误，就验证通过
-	return {
-		valid : true,
-		message : '验证通过'
-	}
+	return Promise.resolve()
 	
 	
 

@@ -145,7 +145,7 @@ export default {
             this.showLoading('海报制作中')
             // 折扣价
             var minPrice = this.formatMoney(item.tickets.ticket_min)
-            var qrimg = await this.$http.post('/api/product/qrcode',{path:`/pages/activity-detail/activity-detail?share_openid=${this.openid}&id=${item.tickets.ticket_id}`});
+            var qrimg = await this.$http.post('/api/product/qrcode',{path:`/pages/activity/detail?share_openid=${this.openid}&id=${item.tickets.ticket_id}`});
             var course_num = `共${item.tickets.course_num}期`
             var canvas_id ='invite-rebate';
             this.drawShare(canvas_id,item.tickets.ticket_img,item.tickets.ticket_title,minPrice,qrimg,(inviteImg)=>{

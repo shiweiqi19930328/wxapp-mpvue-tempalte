@@ -82,7 +82,7 @@ export default {
             // 折扣价
             var minPrice = this.formatMoney(this.detail.tickets.ticket_min)
             var qrimg = await this.$http.post('/api/product/qrcode',
-                {path:`/pages/activity-detail/activity-detail?share_openid=${this.openid}&id=${this.detail.tickets.ticket_id}`});
+                {path:`/pages/activity/detail?share_openid=${this.openid}&id=${this.detail.tickets.ticket_id}`});
             var canvas_id ='invite-success';
             this.drawShare(canvas_id,this.detail.tickets.ticket_img,this.detail.tickets.ticket_title,minPrice,qrimg,(inviteImg)=>{
                 this.inviteImg = inviteImg;

@@ -94,10 +94,6 @@ export default {
         },
         async getData(){
             this.showLoading();
-            // 当前人的openid还没获取到就先获取openid
-            if(!this.openid){
-                await this.getOpenId()
-            };
             var postData = {
                 openid : this.openid,
                 order_id : this.order_id,

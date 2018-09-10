@@ -11,7 +11,7 @@
                 </block>
             </swiper>
             <div class="base-info wrap">
-                <div class="font-15  title">{{detail.ticket_title}}</div>
+                <div class="font-15 font-bold title">{{detail.ticket_title}}</div>
                 <div class="font-12  desc">{{detail.ticket_introduce}}</div>
                 <div class="flex-center price-con">
                     <div class="font-16 color-active new-price">¥{{newPrice}}</div>

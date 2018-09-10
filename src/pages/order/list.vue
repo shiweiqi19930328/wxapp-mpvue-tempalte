@@ -343,7 +343,7 @@ export default {
             this.showLoading('海报制作中')
             // 折扣价
             var minPrice = this.formatMoney(item.tickets.ticket_min)
-            var qrimg = await this.$http.post('/api/product/qrcode',{path:`/pages/activity-detail/activity-detail?share_openid=${this.openid}&id=${item.tickets.ticket_id}`});
+            var qrimg = await this.$http.post('/api/product/qrcode',{path:`/pages/activity/detail?share_openid=${this.openid}&id=${item.tickets.ticket_id}`});
             var canvas_id ='invite-order';
             this.drawShare(canvas_id,item.tickets.ticket_img,item.tickets.ticket_title,minPrice,qrimg,(inviteImg)=>{
                 this.inviteImg = inviteImg;
@@ -355,7 +355,7 @@ export default {
             this.showLoading('转赠海报制作中')
             // 票价
             var totalPrice = this.formatMoney(item.total)
-            var qrimg = await this.$http.post('/api/product/qrcode',{path:`/pages/friend-order/friend-order?shareopenid=${this.openid}&order_id=${item.order_id}`});
+            var qrimg = await this.$http.post('/api/product/qrcode',{path:`/pages/rebate/friend-order?shareopenid=${this.openid}&order_id=${item.order_id}`});
             var canvas_id ='invite-order';
             this.drawShare2(canvas_id,item.tickets.ticket_img,item.tickets.ticket_title,totalPrice,qrimg,(inviteImg)=>{
                 this.inviteImg = inviteImg;

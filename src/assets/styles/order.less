@@ -1,0 +1,189 @@
+page{
+    height: 100%;
+}
+.order{
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    .tab-bar{
+        border: none;
+    }
+    .swiper{
+        flex: 1;
+        .scroll-view{
+            height: 100%;
+            background-color: #f8f9fc;
+        }
+    }
+    .card-con{
+        padding: 10px 20px;
+        background-color: #f8f9fc;
+        .card{
+            margin-bottom: 10px;
+            overflow: hidden;
+            box-sizing: border-box;
+            box-shadow:0 3px 6px 0 rgba(81,99,108,0.33);
+            border-radius:10px;
+            color:#454545;
+            background-color: #fff;
+            .desc{
+                height: 155px;
+                border-radius: 14px;
+                padding: 0 10px;
+                box-sizing: border-box;
+                border-bottom: 1px dashed #dbdade;
+                .title{
+                    padding: 12px 0;
+                    color: #fff;
+                    border-bottom: 1rpx solid #fff;
+                    .order-num{
+                        width: 200px;
+                        font-weight: bold;
+                    }
+                    .from{
+                        flex: 1;
+                        text-align: right;
+                    }
+                }
+                .content{
+                    padding: 10px 0;
+                    display: flex;
+                    font-size: 12px;
+                    .color-content{
+                        line-height: 12px;
+                        .line{
+                            margin-bottom: 5px;
+                        }
+                        .font-bold{
+                            line-height: 13px;
+                            font-size: 13px;
+                        }
+                    }
+                    .active-time{
+                        line-height:11px;
+                    }
+                    &-text{
+                        width: 221px;
+                        box-sizing: border-box;
+                        padding: 0 19px;
+                    }
+                }
+                .card-img{
+                    width: 94px;
+                    height: 94px;
+                    border-radius: 10px;
+                }
+            }
+            .footer{
+                height: 35px;
+                padding: 0 10px;
+                &-img{
+                    width: 18px;
+                    height: 18px;
+                    margin-right: 5px;
+                    font-weight: bold;
+                }
+                &-time{
+                    font-size:14px;
+                    color:#aeacad;
+                }
+                &-btn-group{
+                    height: 100%;
+                    box-sizing: border-box;
+                }
+                &-btn{
+                    width: 70px;
+                    height: 23px;
+                    line-height: 23px;
+                    text-align: center;
+                    font-size: 12px;
+                    box-sizing: border-box;
+                    padding: 0;
+                    margin-left: 10px;
+                    color:#4a4a4a;
+                    font-weight: bold;
+                    border:1rpx solid #dbdade;
+                    background-color: transparent;
+                    border-radius: 9px;
+                    &.active{
+                        color: #00ceb5;
+                    }
+                    &.warn{
+                        color: #ff708f;
+                    }
+                    &.ghost{
+                        color:#aeacad;
+                        border: 1rpx solid #aeacad;
+                        background-color: transparent;
+                    }
+                }
+            }
+            // 默认
+            &.white{
+                .desc{
+                    border-radius: 0;
+                    .order-num{
+                        color:#454545;
+                    }
+                    .title{
+                        border-bottom:1rpx solid #dbdade;
+                    }
+                    .color-content{
+                        color: #454545!important;
+                    }
+                }
+                
+            }
+            // 蓝色
+            &.blue{
+                .from{
+                    color: #fff;
+                }
+                .desc{
+                    background: linear-gradient(to bottom right, #00c5c5 , #00ea84);
+                    border-bottom:none;                
+                    .color-content{
+                        color: #fff!important;
+                    }
+                    .active-time{
+                        color: #fff!important;
+                    }
+                    .title{
+                        border-bottom:1rpx solid #ededed;
+                        color:#fff;
+                    }
+                }
+                .footer{
+                    &-time{
+                        color: #00ceb5
+                    }
+                }
+                
+            }
+            // 警告
+            &.warn{
+                color: #fff;
+                .from{
+                    color: #fff;
+                }
+                .desc{
+                    background: linear-gradient(to bottom right, #ffa107 , #ffe90d);
+                    border-bottom:none;                
+                    .color-content{
+                        color: #fff!important;
+                    }
+                    .title{
+                        border-bottom:1rpx solid #ededed;
+                        color:#fff;
+                    }
+                }
+                .footer{
+                    &-time{
+                        color: #4a4a4a;
+                    }
+                }
+            }
+        }
+    }
+}

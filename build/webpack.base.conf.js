@@ -1,34 +1,17 @@
-var path = require('path')
-var fs = require('fs')
-var utils = require('./utils')
-var config = require('../config')
-var vueLoaderConfig = require('./vue-loader.conf')
-var MpvuePlugin = require('webpack-mpvue-asset-plugin')
-var glob = require('glob')
+const path = require('path')
+const utils = require('./utils')
+const config = require('../config')
+const vueLoaderConfig = require('./vue-loader.conf')
+const MpvuePlugin = require('webpack-mpvue-asset-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MpvueEntry = require('mpvue-entry')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-function getEntry (rootSrc, pattern) {
-  var files = glob.sync(path.resolve(rootSrc, pattern))
-  return files.reduce((res, file) => {
-    var info = path.parse(file)
-    var key = info.dir.slice(rootSrc.length + 1) + '/' + info.name
-    res[key] = path.resolve(file)
-    return res
-  }, {})
-}
-
-const appEntry = { app: resolve('./src/main.js') }
-const pagesEntry = getEntry(resolve('./src'), 'pages/**/main.js')
-const entry = Object.assign({}, appEntry, pagesEntry)
-
 module.exports = {
-  // 如果要自定义生成的 dist 目录里面的文件路径，
-  // 可以将 entry 写成 {'toPath': 'fromPath'} 的形式，
-  // toPath 为相对于 dist 的路径, 例：index/demo，则生成的文件地址为 dist/index/demo.js
-  entry,
+  entry: MpvueEntry.getEntry('src/pages.js'),
   target: require('mpvue-webpack-target'),
   output: {
     path: config.build.assetsRoot,
@@ -41,7 +24,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue': 'mpvue',
-      'flyio': 'flyio/dist/npm/wx',
+      'flyio': 'flyio/dist/npm/wx.js',
       '@': resolve('src')
     },
     symlinks: false,
@@ -95,6 +78,14 @@ module.exports = {
     ]
   },
   plugins: [
-    new MpvuePlugin()
+    new MpvuePlugin(),
+    new MpvueEntry(),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: path.resolve(__dirname, '../dist/static'),
+        ignore: ['.*']
+      }
+    ])
   ]
 }

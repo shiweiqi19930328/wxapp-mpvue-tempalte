@@ -1,0 +1,34 @@
+{
+  "pages": [],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "童伴童行",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+	"backgroundColor":"#fff",
+	"list": [
+	  {
+		"pagePath": "pages/index/index",
+		"text": "首页",
+		"iconPath":"/static/images/home.png",
+		"selectedIconPath":"/static/images/homeS.png"
+	  }, 
+	  {
+		"pagePath": "pages/rebate/index",
+		"text": "返利",
+		"iconPath":"/static/images/rebate.png",
+		"selectedIconPath":"/static/images/rebateS.png"
+	  }, 
+	  {
+		"pagePath": "pages/mine/index",
+		"text": "我的",
+		"iconPath":"/static/images/mine.png",
+		"selectedIconPath":"/static/images/mineS.png"
+	  }
+	],
+	"color":"#aeacad",
+	"selectedColor":"#00ceb5"
+  }
+}

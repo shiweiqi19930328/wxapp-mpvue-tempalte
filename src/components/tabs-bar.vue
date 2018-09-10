@@ -1,6 +1,6 @@
 <!-- 小程序限制，复杂的传值自定义组件功能有限，只能做静态的组件了，也罢，也能起到简化代码逻辑的作用 -->
 <template>
-    <scroll-view class="tab-bar-con" scroll-x :scroll-left="scrollLeft" scroll-with-animation v-if="options">
+    <scroll-view class="tab-bar-scroll-view" scroll-x :scroll-left="scrollLeft" scroll-with-animation v-if="options">
         <radio-group  @change="tabChange" class="tab-bar flex-center-between" :style="{'width':tabbarWidth}">
             <label class="tab-bar-item" v-for="(item,index) in options" :key="index" :class="value == index ? 'active' : ''">
                 <radio :value="index" v-show="false"/>
@@ -109,7 +109,6 @@ export default {
         justify-content : space-between;
         border-bottom:1px solid @border-color;
         background-color: #fff;
-        padding: 0 10px;
         box-sizing: border-box;
         &-item{
             height : 100%;

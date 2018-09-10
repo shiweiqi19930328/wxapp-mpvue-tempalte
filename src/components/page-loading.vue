@@ -1,4 +1,3 @@
-<!-- logo扫光效果loading -->
 <template>
     <div class="loading flex-center-center">
         <div class="logo-con">
@@ -9,7 +8,6 @@
 
 <script>
 export default {
-    name:'page-loading',
     data () {
         return {    
             
@@ -37,13 +35,14 @@ export default {
     },
 }
 </script>
+<!-- animation: loading 0.5s linear infinite; -->
 <style scoped lang="less">
     @keyframes loading{
         from{
             left: -100px; top: 0;
         }
         to{
-            left: 100px; top: 100px;
+            left: 120px; top: 100px;
         }
     }
     .loading{
@@ -57,7 +56,9 @@ export default {
             &:before{
                 content:"";
                 position: absolute;
-                width: 145px;
+                left: -100px; /**第一个数字参数控制扫光速度，数字越大越慢**/
+                top: -460px;
+                width: 120px;
                 height: 12px; /**光标的宽度，可根据实际调整**/
                 background-color: rgba(255,255,255,.5);
                 transform: rotate(-45deg);

@@ -10,7 +10,7 @@
 	"miniprogramRoot": "./dist/",
 	"compileType": "miniprogram",
 	"appid": "touristappid",
-	"projectname": "wxapp-mpvue-template",
+	"projectname": "mpvue-project",
 	"condition": {
 		"search": {
 			"current": -1,

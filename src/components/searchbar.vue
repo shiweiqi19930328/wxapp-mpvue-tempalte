@@ -1,11 +1,10 @@
-<!-- 这个组件，根据项目实际情况自定义，毕竟选项数据和下拉内容都不一样，这里我还用了个小程序原生日历插件，这里展示不出来 -->
 <template>
     <block>
         <div class="search-bar flex-center-between">
             <div class="search-bar-item">
                 <div class="search-bar-item-title flex-center" @click="toggle(1)">
                     <div class="font-bold">{{sort[form.sort]}}</div>
-                    <div :class="active == 1 ? 'arrow-down' : 'arrow-up'"></div>
+                    <div :class="active == 1 ? 'down' : 'up'" class="arrow"></div>
                 </div>
                 <div class="dropdown" v-show="active == 1" @touchmove.stop>
                     <radio-group  @change="radioChange1">
@@ -18,7 +17,7 @@
             <div class="search-bar-item">
                 <div class="search-bar-item-title flex-center" @click="toggle(2)">
                     <div class="font-bold">{{form.age == '全部' ? '年龄筛选' : age[form.age]}}</div>
-                    <div :class="active == 2 ? 'arrow-down' : 'arrow-up'"></div>
+                    <div :class="active == 2 ? 'down' : 'up'" class="arrow"></div>
                 </div>
                 <div class="dropdown" v-show="active == 2" @touchmove.stop>
                     <radio-group  @change="radioChange2">
@@ -34,7 +33,7 @@
             <div class="search-bar-item">
                 <div class="search-bar-item-title flex-center" @click="toggle(3)">
                     <div class="font-bold">{{form.time == '' ? '全部日期' : form.time}}</div>
-                    <div :class="active == 3 ? 'arrow-down' : 'arrow-up'"></div>
+                    <div :class="active == 3 ? 'down' : 'up'" class="arrow"></div>
                 </div>
                 <div class="dropdown font-13" v-show="active == 3">
                     <calendar 
@@ -49,18 +48,18 @@
                      />
                     <div class="allTime" @click="allTime">全部日期</div>
                     <div class="week-day-con flex-center-between">
-                        <div class="color-pink">日</div>
-                        <div>一</div>
-                        <div>二</div>
-                        <div>三</div>
-                        <div>四</div>
-                        <div>五</div>
-                        <div class="color-pink">六</div>
+                        <div class="color-pink">周日</div>
+                        <div>周一</div>
+                        <div>周二</div>
+                        <div>周三</div>
+                        <div>周四</div>
+                        <div>周五</div>
+                        <div class="color-pink">周六</div>
                     </div>
                 </div>
             </div>
         </div>  
-        <div class="mask" v-show="active" @click="hide" @touchmove.stop></div>
+        <div class="zan-dialog--mask mask" v-show="active" @click="hide" @touchmove.stop></div>
     </block>
 </template>
 <script>
@@ -195,7 +194,7 @@ export default{
     }
 }
 </script>
-<style scoped lang="less">
+<style lang="less">
     .search-bar{
         position: fixed;
         z-index: 9;
@@ -214,11 +213,8 @@ export default{
             height: 100%;
             &-title{
                 line-height: 38px;
-                .arrow-up{
-                    top: 21px;
-                }
-                .arrow-down{
-                    top: 16px;
+                .arrow{
+                    margin-left: 4px;
                 }
             }
             .dropdown{
@@ -230,7 +226,7 @@ export default{
                 background-color: #fff;
                 &-item{
                     padding: 15px 20px;
-                    border-bottom: 1px solid #dbdade;
+                    border-bottom: 1rpx solid #dbdade;
                     display: block;
                     &.active{
                         color: #00ceb5;
@@ -266,7 +262,7 @@ export default{
                 color : #aeacad;;
                 font-size : 12px;
                 font-weight: bold;
-                border-bottom: 1px solid #dbdade;
+                border-bottom: 1rpx solid #dbdade;
                 .color-pink{
                     color: #ff708f;
                 }
@@ -292,6 +288,8 @@ export default{
     .calendar-board-self{
         font-size:14px;   
         color:#2e2e2e;
+        padding-left: 5px;
+        padding-right: 5px;
     }
     .mask{
         z-index: 8;

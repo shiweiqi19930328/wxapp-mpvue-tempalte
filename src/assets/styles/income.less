@@ -1,0 +1,80 @@
+page{
+    height: 100%;
+}
+.income{
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    .section-1{
+        padding: 10px 20px 15px;
+        background: #fff;
+        color: #fff;
+        .income-con{
+            height: 80px;
+            padding: 23px 0;
+            box-sizing: border-box;
+            border-radius: 12px;
+            background: linear-gradient(to  right, #00c5c5 , #00ea84);
+            .income-type{
+                height: 100%;
+                flex: 1;
+                border-right: 1rpx solid #fff;
+                padding-left: 22px;
+                &.no-border{
+                    border: none
+                }
+            }
+        }
+    }
+    .tab-bar-con{
+        background-color: #f2f2f2;
+        .tab-bar{
+            background-color: #f2f2f2;
+            border: none;
+        }
+    }
+    .swiper{
+        flex: 1;
+        .scroll-view{
+            height: 100%;
+        }
+    }
+    .card-con{
+        padding: 5px 20px;
+        .card{
+            padding: 10px 0;
+            border-bottom: 1rpx solid rgba(174,172,173,0.5);
+            .content{
+                .title{
+                    margin-bottom: 5px;
+                }
+                .time{
+                    font-size:12px;
+                    color:#aeacad;
+                }
+            }
+            .num{
+                font-size: 14px;
+            }
+        }
+    }
+    .empty{
+        height: 100%;
+        padding-top: 90px;
+        box-sizing: border-box;
+        text-align: center;
+        font-size:14px;
+        color:#00ceb5;
+        .btn{
+            background: linear-gradient(to  right, #00c5c5 , #00ea84);
+            margin: 15px auto 0;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            box-shadow:0 3px 12px 0 rgba(2,160,69,0.66);
+            border-radius:10px;
+            color: #fff;
+        }        
+    }
+}

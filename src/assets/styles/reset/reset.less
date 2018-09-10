@@ -23,3 +23,19 @@ page{
     font-size: 14px; //初始化字体大小
     color: @content-color; //初始化字体颜色
 }
+
+// iphoneX兼容
+.page-fix-iphonex{
+    padding-bottom: 34px
+}
+.fix-iphonex {
+    bottom:34px!important;
+}
+.fix-iphonex::after {
+   content: ' ';
+   position: fixed;
+   bottom: 0!important;
+   height: 34px!important;
+   width: 100%;
+   background: #fff;
+}

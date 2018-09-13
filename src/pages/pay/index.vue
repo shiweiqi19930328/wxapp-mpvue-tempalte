@@ -31,7 +31,10 @@
                     </label>
                 </radio-group>
                 <div class="num-con flex-center-between">
-                    <div class="color-active font-14">¥{{singleFormat}}／张</div>
+                    <div class="color-active font-14">
+                        <p v-if="form.level">¥{{singleFormat}}／张</p>
+                        <p class="remain" v-if="form.level">库存{{num}}张</p>
+                    </div>
                     <div class="flex-center">
                         <img src="/static/images/minus.png"  class="action-img" @click="minusCount"/>
                         <div class="num">{{form.num}}</div>
@@ -113,12 +116,16 @@ export default {
     },
     computed:{
         single(){
-            if(this.detail.level){
-                for(var i=0,len=this.detail.level.length;i<len;i++){
-                    if(this.form.level == this.detail.level[i].level_id){
-                        return this.detail.level[i].price
-                    }
-                }
+            var level = this.findLevel(this.form.level);
+            if(this.form.level && level){
+                return level.price
+            }
+            return 0
+        },
+        num(){
+            var level = this.findLevel(this.form.level);
+            if(this.form.level && level){
+                return level.num
             }
             return 0
         },
@@ -137,15 +144,39 @@ export default {
     },
 
     methods: {
+        findLevel(level_id){
+            if(!this.detail.level){
+                return false
+            }
+            for(var i=0,len=this.detail.level.length;i<len;i++){
+                if(level_id == this.detail.level[i].level_id){
+                    return this.detail.level[i]
+                }
+            }
+        },
         // 场次
         radioChange1(e){
             this.form.times = e.mp.detail.value
         },
         // 套餐
         radioChange2(e){
-            this.form.level = e.mp.detail.value
+            var level = this.findLevel(e.mp.detail.value);
+            if(level.num == 0){
+                this.showToast('当前套餐已售罄')
+                return 
+            }
+            this.form.level = e.mp.detail.value;
+            this.form.num = 1;
         },
         addCount(){
+            if(!this.form.level){
+                this.showToast('请先选择套餐')
+                return
+            }
+            if(this.form.num >= this.num){
+                this.showToast(`当前套餐库存仅${this.num}件`)
+                return
+            }
             this.form.num = this.form.num + 1;
         },
         minusCount(){

@@ -133,7 +133,8 @@ const mixin = {
             var postData = {
                 openid:this.openid,
                 nickname : this.userInfo.nickName,
-                headimgurl : this.userInfo.avatarUrl
+                headimgurl : this.userInfo.avatarUrl,
+                introducer : this.share && this.share.share_openid ? this.share.share_openid:''
             }
             var result = await this.$http.post('/api/new-ticket/register',postData);
             this.$store.commit('hasRegister');  

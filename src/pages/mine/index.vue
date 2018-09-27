@@ -1,16 +1,17 @@
 <template>
     <div class="mine">
-        <div class="wrap user-con flex-center">
+        <a class="wrap user-con flex-center" hover-class="none" href="/pages/vip/index">
             <div class="userAvatar">
                 <open-data type="userAvatarUrl" ></open-data>
             </div>
             
-            <div class="content flex-center">
+            <div class="content flex-center-between">
                 <div class="username">
                     <open-data type="userNickName"></open-data>
                 </div>
+                <div class="arrow right"></div>
             </div>
-        </div>
+        </a>
         <div class="divide"></div>
         <div class="section-2 wrap">
             <div class="flex-center order-title font-bold">

@@ -2,7 +2,7 @@ module.exports = [
     {
         path: 'pages/index/index',
         config: {
-            navigationBarTitleText: '童伴童行',
+            navigationBarTitleText: '茶酒礼',
             enablePullDownRefresh: true
         }
     },
@@ -121,5 +121,29 @@ module.exports = [
         config: {
             navigationBarTitleText: '关于我们'
         }
-    }
+    },
+    {
+        path: 'pages/vip/index',
+        config: {
+            navigationBarTitleText: '个人中心'
+        }
+    },
+    {
+        path: 'pages/vip/pay',
+        config: {
+            navigationBarTitleText: '充值中心'
+        }
+    },
+    {
+        path: 'pages/vip/list',
+        config: {
+            navigationBarTitleText: '充值记录'
+        }
+    },
+    {
+        path: 'pages/vip/shop',
+        config: {
+            navigationBarTitleText: '我的店铺'
+        }
+    },
 ]

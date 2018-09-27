@@ -4,10 +4,10 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import system from './modules/system'
 Vue.use(Vuex)
-
+// oxkhN5e1ZASGBCKJydcqyQEENPwQ
 const store = new Vuex.Store({
     state: {
-        openid : 'oxkhN5e1ZASGBCKJydcqyQEENPwQ',
+        openid : '',
         agent_openid : '',
         token:'',
         user:null,

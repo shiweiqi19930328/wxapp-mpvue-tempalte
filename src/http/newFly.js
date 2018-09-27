@@ -11,7 +11,7 @@ newFly.config.baseURL= baseURL
 // 获取openid
 async function getOpenid(){
     var {code} = await vm.$wx.login();
-    var {data : openid} = await newFly.post('/api/new-ticket/openid',{code});
+    var {data : {data:openid}} = await newFly.post('/api/new-ticket/openid',{code});
     store.commit('saveOpenid',openid);  
     return openid
 }

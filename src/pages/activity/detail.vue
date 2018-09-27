@@ -154,6 +154,7 @@ export default {
             this.setWxTitle(this.detail.ticket_title);
         },
         async drawImg(){
+            this.$http.post('/api/product/shop-data',{openid:this.openid,ticket_id:this.ticket_id})
             this.showLoading('海报制作中')
             // 折扣价
             var minPrice = this.formatMoney(this.detail.ticket_min)
